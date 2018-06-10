@@ -1,0 +1,78 @@
+call plug#begin()
+Plug 'honza/vim-snippets'
+Plug 'brooth/far.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'airblade/vim-gitgutter'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'rafi/awesome-vim-colorschemes'
+Plug 'w0rp/ale'
+Plug 'kien/ctrlp.vim'
+Plug 'zchee/deoplete-jedi'
+Plug 'Shougo/deoplete.nvim'
+Plug 'rust-lang/rust.vim'
+Plug 'pbondoer/vim-42header'
+call plug#end()
+
+"Set custom tab width according to language
+autocmd FileType c,cpp,asm,s,php,html set ts=4 sw=4
+
+" General config.
+set nu
+set mouse=a
+set smarttab
+set modeline
+set ruler
+set history=100
+set nowrap
+set title
+set showmatch
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+"set cursor collumn and line coloration
+let mapleader=";"
+colorscheme minimalist
+
+"copy/paste from/to clipboard
+" set clipboard=unnamedplus
+
+" Undo file.
+set undofile
+set undodir=$HOME/.vim/undodir
+set undolevels=1000
+set undoreload=10000
+
+" Hide coloration of found words
+map <C-C> :nohlsearch<CR>
+
+" Airline config.
+let g:airline_theme='luna'
+
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
+"airline config
+let g:airline#extensions#tabline#enabled = 2
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#right_sep = ' '
+let g:airline#extensions#tabline#right_alt_sep = '|'
+let g:airline_left_sep = ' '
+let g:airline_left_alt_sep = '|'
+let g:airline_right_sep = ' '
+let g:airline_right_alt_sep = '|'
+
+"ale settings
+"ale c linter settings
+let g:ale_c_gcc_options="-Wall -Wextra -Werror"
+let g:ale_c_gcc_executable="clang"
+let g:ale_lint_on_text_changed = 'never'
+" You can disable this option too
+" if you don't want linters to run on opening a file
+let g:ale_lint_on_enter = 0
+
+"Enable deoplete
+let g:deoplete#enable_at_startup = 1
