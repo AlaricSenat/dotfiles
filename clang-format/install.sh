@@ -6,9 +6,9 @@ then
 	exit 6
 fi
 
-CFPATH="${HOME}"/.clang-format
+CFPATH="${HOME}"/Projects/
+PYPATH="${HOME}"/.clang-format
 
-mkdir -p "${CFPATH}"
-cp -f 42.format "${CFPATH}"/42.format
-cp -f 42-format.py "${CFPATH}"/42-format.py
-
+mkdir -p "${CFPATH}" "${PYPATH}"
+cp -f 42.clang-format "${CFPATH}"/.clang-format
+cp -f 42-format.py "${PYPATH}"/42-format.py
