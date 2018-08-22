@@ -13,6 +13,7 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'rust-lang/rust.vim'
 Plug 'pbondoer/vim-42header'
 Plug 'roxma/nvim-yarp'
+Plug 'morhetz/gruvbox'
 Plug 'roxma/vim-hug-neovim-rpc'
 call plug#end()
 
@@ -39,10 +40,14 @@ set smartcase
 set backspace=indent,eol,start
 "set cursor collumn and line coloration
 let mapleader=";"
-colorscheme minimalist
+set background=dark
+colorscheme gruvbox
+"colorscheme minimalist
 
 "copy/paste from/to clipboard
 " set clipboard=unnamedplus
+
+set wildignore+=*.so,*.a,*.o,*.zip,*.out
 
 " Undo file.
 set undofile
@@ -56,13 +61,11 @@ set directory=$HOME/.vim/swap/
 
 map <C-C> :nohlsearch<CR>
 
-" Airline config.
-let g:airline_theme='luna'
-
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
 "airline config
+let g:airline_theme='gruvbox'
 let g:airline#extensions#tabline#enabled = 2
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#left_sep = ' '
@@ -73,6 +76,13 @@ let g:airline_left_sep = ' '
 let g:airline_left_alt_sep = '|'
 let g:airline_right_sep = ' '
 let g:airline_right_alt_sep = '|'
+
+" GitGutter settings
+let g:gitgutter_sign_added='┃'
+let g:gitgutter_sign_modified='┃'
+let g:gitgutter_sign_removed='◢'
+let g:gitgutter_sign_removed_first_line='◥'
+let g:gitgutter_sign_modified_removed='◢'
 
 "ale settings
 "ale c linter settings
@@ -96,4 +106,5 @@ inoremap "" ""<left>
 inoremap '' ''<left>
 inoremap {} {}<left>
 inoremap <> <><left>
+tnoremap kj <C-\><C-n>
 
