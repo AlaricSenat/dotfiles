@@ -3,17 +3,20 @@ Plug 'honza/vim-snippets'
 Plug 'brooth/far.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'airblade/vim-gitgutter'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'w0rp/ale'
 Plug 'kien/ctrlp.vim'
+Plug 'rhysd/clever-f.vim'
 Plug 'zchee/deoplete-jedi'
 Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/neoinclude.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'pbondoer/vim-42header'
 Plug 'roxma/nvim-yarp'
+Plug 'kshenoy/vim-signature'
 Plug 'morhetz/gruvbox'
+Plug 'mhinz/vim-signify'
 Plug 'roxma/vim-hug-neovim-rpc'
 call plug#end()
 
@@ -49,6 +52,11 @@ colorscheme gruvbox
 
 set wildignore+=*.so,*.a,*.o,*.zip,*.out
 
+" leader
+nmap <leader>n :bn<CR>
+nmap <leader>p :bp<CR>
+nmap <leader>d :bd<CR>
+
 " Undo file.
 set undofile
 set undodir=$HOME/.vim/undodir
@@ -77,16 +85,17 @@ let g:airline_left_alt_sep = '|'
 let g:airline_right_sep = ' '
 let g:airline_right_alt_sep = '|'
 
-" GitGutter settings
-let g:gitgutter_sign_added='┃'
-let g:gitgutter_sign_modified='┃'
-let g:gitgutter_sign_removed='◢'
-let g:gitgutter_sign_removed_first_line='◥'
-let g:gitgutter_sign_modified_removed='◢'
+" Signify settings
+let g:signify_sign_add               = '┃'
+let g:signify_sign_delete            = '┃'
+let g:signify_sign_delete_first_line = '┃'
+let g:signify_sign_change            = '┃'
+let g:signify_sign_changedelete = g:signify_sign_change
+
 
 "ale settings
 "ale c linter settings
-let g:ale_c_gcc_options="-Wall -Wextra -Werror"
+let g:ale_c_gcc_options="-Wall -Wextra -Werror -I."
 let g:ale_c_gcc_executable="clang"
 let g:ale_lint_on_text_changed = 'never'
 " You can disable this option too
@@ -108,3 +117,11 @@ inoremap {} {}<left>
 inoremap <> <><left>
 tnoremap kj <C-\><C-n>
 
+" clang path
+
+let g:uname = system("uname")
+if g:uname == "Darwin"
+    let g:deoplete#sources#clang#libclang_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
+elseif g:uname == "Linux"
+    let g:deoplete#sources#clang#libclang_path='/usr/lib/libclang.so'
+endif
