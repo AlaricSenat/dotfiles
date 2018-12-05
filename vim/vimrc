@@ -18,10 +18,12 @@ Plug 'kshenoy/vim-signature'
 Plug 'morhetz/gruvbox'
 Plug 'mhinz/vim-signify'
 Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'drmikehenry/vim-headerguard'
 call plug#end()
 
 "Set custom tab width according to language
-autocmd FileType c,cpp,asm,s,php,html set ts=4 sw=4
+autocmd FileType c,asm,s,php,html set ts=4 sw=4
+autocmd FileType cpp,hpp set expandtab ts=2 sw=2
 
 inoremap kj <esc>
 
@@ -98,6 +100,8 @@ let g:signify_sign_changedelete = g:signify_sign_change
 "ale c linter settings
 let g:ale_c_gcc_options="-Wall -Wextra -Werror -I."
 let g:ale_c_gcc_executable="clang"
+let g:ale_cpp_gcc_options="-Wall -Wextra -Werror -std='c++14' -I."
+let g:ale_cpp_gcc_executable="clang++"
 let g:ale_lint_on_text_changed = 'never'
 " You can disable this option too
 " if you don't want linters to run on opening a file
@@ -126,3 +130,6 @@ if g:uname == "Darwin"
 elseif g:uname == "Linux"
     let g:deoplete#sources#clang#libclang_path='/usr/lib/libclang.so'
 endif
+
+autocmd BufNewFile *.{h,hpp} call g:HeaderguardAdd()
+let g:headerguard_use_cpp_comments = 1
