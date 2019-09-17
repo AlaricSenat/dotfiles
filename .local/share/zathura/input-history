@@ -1,0 +1,7 @@
+:open /home/asenat/Downloads/
+:open /home/asenat/Downloads/*.pdf
+:help copy
+:help y
+:help
+:open /home/asenat/Downloads/U2600.pdf
+:open /home/asenat/Downloads/cv_stage.pdf

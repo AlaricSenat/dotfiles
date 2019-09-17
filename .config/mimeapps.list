@@ -1,0 +1,5 @@
+[Added Associations]
+image/png=firefox.desktop;
+x-scheme-handler/http=exo-web-browser.desktop;
+x-scheme-handler/https=exo-web-browser.desktop;
+

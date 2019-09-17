@@ -1,0 +1,90 @@
+windows:
+- active: true
+  geometry: !!binary |
+    AdnQywADAAAAAAAAAAAAAAAABVUAAAL/AAAAAAAAABkAAAVVAAAC/wAAAAACAAAABVYAAAAAAAAA
+    GQAABVUAAAL/
+  tabs:
+  - history:
+    - pinned: false
+      title: start.duckduckgo.com
+      url: https://start.duckduckgo.com/
+    - pinned: false
+      title: align latex at DuckDuckGo
+      url: https://duckduckgo.com/?q=align+latex&ia=web
+    - pinned: false
+      title: align text latex at DuckDuckGo
+      url: https://duckduckgo.com/?q=align+text+latex&ia=web
+    - original-url: https://duckduckgo.com/?q=align+text+latex&ia=web
+      pinned: false
+      title: horizontal alignment - Aligning in text (non-math) - TeX - LaTeX Stack
+        Exchange
+      url: https://tex.stackexchange.com/questions/33239/aligning-in-text-non-math
+    - pinned: false
+      title: tabular late at DuckDuckGo
+      url: https://duckduckgo.com/?q=tabular+late&ia=web
+    - original-url: https://duckduckgo.com/?q=tabular+late&ia=web
+      pinned: false
+      title: Tables - Overleaf, Online LaTeX Editor
+      url: https://www.overleaf.com/learn/latex/Tables
+    - pinned: false
+      title: Tables - Overleaf, Online LaTeX Editor
+      url: https://www.overleaf.com/learn/latex/Tables#Colouring_a_table_.28cells.2C_rows.2C_columns_and_lines.29
+    - pinned: false
+      title: bold a whole column latex at DuckDuckGo
+      url: https://duckduckgo.com/?q=bold+a+whole+column+latex&ia=web
+    - original-url: https://duckduckgo.com/?q=bold+a+whole+column+latex&ia=web
+      pinned: false
+      title: tables - Tabular, make a column or a row emphasized - TeX - LaTeX Stack
+        Exchange
+      url: https://tex.stackexchange.com/questions/12467/tabular-make-a-column-or-a-row-emphasized
+    - pinned: false
+      title: table width late at DuckDuckGo
+      url: https://duckduckgo.com/?q=table+width+late&ia=web
+    - pinned: false
+      title: table width latex at DuckDuckGo
+      url: https://duckduckgo.com/?q=table+width+latex&ia=web
+    - original-url: https://duckduckgo.com/?q=table+width+latex&ia=web
+      pinned: false
+      title: margins - How to force a table into page width? - TeX - LaTeX Stack Exchange
+      url: https://tex.stackexchange.com/questions/10535/how-to-force-a-table-into-page-width
+    - pinned: false
+      title: insert utf8 characters laetx at DuckDuckGo
+      url: https://duckduckgo.com/?q=insert+utf8+characters+laetx&ia=web
+    - pinned: false
+      title: insert utf 8 characters latex at DuckDuckGo
+      url: https://duckduckgo.com/?q=insert+utf+8+characters+latex&ia=web
+    - original-url: https://duckduckgo.com/?q=insert+utf+8+characters+latex&ia=web
+      pinned: false
+      title: unicode - How to add utf-8 symbols correctly? - TeX - LaTeX Stack Exchange
+      url: https://tex.stackexchange.com/questions/291953/how-to-add-utf-8-symbols-correctly
+    - pinned: false
+      title: 'Package inputenc Error: Unicode character ★ (U+2605) not set up for
+        use with LaTeX at DuckDuckGo'
+      url: https://duckduckgo.com/?q=Package+inputenc+Error%3A+Unicode+character+%E2%98%85+(U%2B2605)+not+set+up+for+use+with+LaTeX&ia=web
+    - active: true
+      original-url: https://duckduckgo.com/?q=Package+inputenc+Error%3A+Unicode+character+%E2%98%85+(U%2B2605)+not+set+up+for+use+with+LaTeX&ia=web
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 920
+      title: 'utf 8 - Package inputenc Error: Unicode char \u8:β not set up for use
+        with LaTeX - Stack Overflow'
+      url: https://stackoverflow.com/questions/25969041/package-inputenc-error-unicode-char-u8%CE%B2-not-set-up-for-use-with-latex
+      zoom: 1.0
+  - active: true
+    history:
+    - pinned: false
+      title: DuckDuckGo — Privacy, simplified.
+      url: https://start.duckduckgo.com/
+    - pinned: false
+      title: youtube at DuckDuckGo
+      url: https://duckduckgo.com/?q=youtube&ia=web
+    - active: true
+      original-url: https://duckduckgo.com/?q=youtube&ia=web
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: YouTube
+      url: https://www.youtube.com/
+      zoom: 1.0
