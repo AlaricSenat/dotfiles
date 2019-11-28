@@ -1,137 +1,39 @@
-call plug#begin()
-Plug 'honza/vim-snippets'
-Plug 'brooth/far.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'rafi/awesome-vim-colorschemes'
-Plug 'w0rp/ale'
-Plug 'kien/ctrlp.vim'
-Plug 'rhysd/clever-f.vim'
-Plug 'zchee/deoplete-jedi'
-Plug 'Shougo/deoplete.nvim'
-Plug 'Shougo/neoinclude.vim'
-Plug 'rust-lang/rust.vim'
-Plug 'pbondoer/vim-42header'
-Plug 'roxma/nvim-yarp'
-Plug 'kshenoy/vim-signature'
-Plug 'morhetz/gruvbox'
-Plug 'mhinz/vim-signify'
-Plug 'roxma/vim-hug-neovim-rpc'
-Plug 'drmikehenry/vim-headerguard'
-Plug 'rhysd/vim-clang-format'
-call plug#end()
-
-"Set custom tab width according to language
-autocmd FileType c,asm,s,php,html set ts=4 sw=4
-autocmd FileType cpp,hpp set expandtab ts=2 sw=2
-
-inoremap kj <esc>
-
-" General config.
-set nu
-set mouse=a
-set smarttab
-set modeline
-set ruler
-set history=100
-set nowrap
-set title
-set showmatch
-set showcmd
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
-set backspace=indent,eol,start
-"set cursor collumn and line coloration
-let mapleader=";"
-set background=dark
-colorscheme gruvbox
-"colorscheme minimalist
-
-"copy/paste from/to clipboard
-" set clipboard=unnamedplus
-
-set wildignore+=*.so,*.a,*.o,*.zip,*.out
-
-" leader
-nmap <leader>n :bn<CR>
-nmap <leader>p :bp<CR>
-nmap <leader>d :bd<CR>
-nmap <leader>w :set wrap<CR>
-nmap <leader>f :ClangFormat<CR>
+set nocompatible
+syntax on
 
 " Undo file.
 set undofile
 set undodir=$HOME/.vim/undodir
 set undolevels=1000
 set undoreload=10000
+
 " swaps files
-
 set directory=$HOME/.vim/swap/
-" Hide coloration of found words
 
-map <C-C> :nohlsearch<CR>
+" visual helpers
+set number
+set showcmd
 
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-
-"airline config
-let g:airline_theme='gruvbox'
-let g:airline#extensions#tabline#enabled = 2
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#right_sep = ' '
-let g:airline#extensions#tabline#right_alt_sep = '|'
-let g:airline_left_sep = ' '
-let g:airline_left_alt_sep = '|'
-let g:airline_right_sep = ' '
-let g:airline_right_alt_sep = '|'
-
-" Signify settings
-let g:signify_sign_add               = '┃'
-let g:signify_sign_delete            = '┃'
-let g:signify_sign_delete_first_line = '┃'
-let g:signify_sign_change            = '┃'
-let g:signify_sign_changedelete = g:signify_sign_change
-
-
-"ale settings
-"ale c linter settings
-let g:ale_c_gcc_options="-Wall -Wextra -Werror -I."
-let g:ale_c_gcc_executable="clang"
-let g:ale_cpp_gcc_options="-Wall -Wextra -Werror -std='c++14' -I."
-let g:ale_cpp_gcc_executable="clang++"
-let g:ale_lint_on_text_changed = 'never'
-" You can disable this option too
-" if you don't want linters to run on opening a file
-let g:ale_lint_on_enter = 0
-
-"Enable deoplete
-let g:deoplete#enable_at_startup = 1
-
-" clang format
-map <C-K> :py3f ~/.clang-format/42-format.py<cr>
-imap <C-K> <c-o>:py3f ~/.clang-format/42-format.py<cr>
-
-inoremap () ()<left>
-inoremap [] []<left>
-inoremap "" ""<left>
-inoremap '' ''<left>
-inoremap {} {}<left>
-inoremap <> <><left>
-tnoremap kj <C-\><C-n>
-
-" clang path
-
-let g:uname = system("uname")
-if g:uname == "Darwin"
-    let g:deoplete#sources#clang#libclang_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
-elseif g:uname == "Linux"
-    let g:deoplete#sources#clang#libclang_path='/usr/lib/libclang.so'
+" incremental search
+set hlsearch
+set incsearch
+if has('nvim')
+  set inccommand=nosplit
 endif
 
-autocmd BufNewFile *.{h,hpp} call g:HeaderguardAdd()
-let g:headerguard_use_cpp_comments = 1
+" two-space auto-indentation
+set autoindent
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+
+" OK, wrap lines but don't split words
+set wrap
+set linebreak
+
+" auto-complete with <Tab> in command mode
+set wildmenu
+set wildmode=longest,full
+
+inoremap kj <esc>
