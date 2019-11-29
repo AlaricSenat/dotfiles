@@ -18,8 +18,8 @@ window:
   # Specified in number of columns/lines, not pixels.
   # If both are `0`, this setting is ignored.
   dimensions:
-    columns: 85
-    lines: 23
+    columns: 0
+    lines: 0
 
   # Window position (changes require restart)
   #
@@ -49,7 +49,7 @@ window:
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background, but no title bar buttons
-  decorations: full
+  decorations: none
 
   # Startup Mode (changes require restart)
   #
@@ -136,7 +136,7 @@ font:
     #style: Italic
 
   # Point size
-  size: 7.0
+  size: 12.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -509,7 +509,9 @@ key_bindings:
   #- { key: Q,      mods: Command,         action: Quit             }
   #- { key: W,      mods: Command,         action: Quit             }
   #- { key: F,      mods: Command|Control, action: ToggleFullscreen }
-
+  
+  - { key: V,        mods: Control|Shift, action: Paste                     }
+  - { key: C,        mods: Control|Shift, action: Copy                      }
   - { key: Equals,   mods: Control, action: IncreaseFontSize                 }
   - { key: Add,      mods: Control, action: IncreaseFontSize                 }
   - { key: Subtract, mods: Control, action: DecreaseFontSize                 }
