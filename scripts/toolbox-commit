@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+
+if [ -z "$1" -a -z "$2" ]; then
+  echo "Usage: $0 [container] [image]" 1>&2
+  exit 1
+fi
+
+podman stop $1
+podman commit $1 $2
+echo "Done!"
+echo "Run toolbox create -c [name] -i $2"

@@ -1,0 +1,26 @@
+#!/usr/bin/bash
+
+if [ -z "$1" ]; then
+  echo "Usage: $0 [name]" 1>&2
+  exit 1
+fi
+
+echo "Creating container $1..."
+toolbox create -c $1
+
+run="toolbox run -c $1"
+
+echo "Upgrading RPM base..."
+$run sudo dnf -y upgrade
+
+echo "Installing RPM default tools..."
+$run sudo dnf install -y \
+	zsh                    \
+  neovim                 \
+  make bear              \
+  clang gcc gcc-c++ nasm \
+  lldb gdb               \
+  nodejs                 \
+
+echo "Done!"
+echo "Run toolbox enter -c $1"
