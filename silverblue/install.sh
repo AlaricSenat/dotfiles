@@ -8,8 +8,11 @@ sudo wget https://copr.fedorainfracloud.org/coprs/pschyska/alacritty/repo/fedora
 # Enable flathub
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
+# Change flatpak languages defaults
+flatpak config --set languages "en;fr"
+
 # Upgrade and install the base layer
 rpm-ostree refresh-md &&
 rpm-ostree upgrade &&
-rpm-ostree install zsh vim alacritty gnome-tweak-tool materia-gtk-theme &&
+rpm-ostree install zsh vim alacritty gnome-tweak-tool materia-gtk-theme evolution &&
 echo Success ! You can now reboot and start install phase 2
