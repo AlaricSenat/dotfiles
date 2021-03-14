@@ -11,7 +11,7 @@ if [ -z "$1" ]; then
 fi
 
 echo "Creating container $1..."
-toolbox create -c $1
+toolbox create -c $1 -i "fedora-toolbox:$fversion"
 
 run="toolbox run -c $1"
 
