@@ -1,0 +1,16 @@
+#!/bin/bash
+FVERSION="f33"
+
+cat << EOF >> /var/lib/flatpak/runtime/org.fedoraproject.Platform/x86_64/$FVERSION/active/metadata
+
+[Extension org.gtk.Gtk3theme]
+directory = share/runtime/share/themes
+subdirectories = true
+subdirectory-suffix = gtk-3.0
+no-autodownload = true
+version = 3.22
+EOF
+
+#Create `share/runtime/share/themes` folder in the `org.fedoraproject.Platform` runtime:
+
+mkdir -p /var/lib/flatpak/runtime/org.fedoraproject.Platform/x86_64/$FVERSION/active/files/share/runtime/share/themes
