@@ -1,5 +1,10 @@
 #!/usr/bin/bash
 
+fversion=$(rpm -E %fedora)
+
+rpmfusion_free="https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$fversion.noarch.rpm"
+rpmfusion_nonfree="https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$fversion.noarch.rpm"
+
 if [ -z "$1" ]; then
   echo "Usage: $0 [name]" 1>&2
   exit 1
@@ -21,6 +26,7 @@ $run sudo dnf install -y \
   clang gcc gcc-c++ nasm \
   lldb gdb               \
   nodejs                 \
+  $rpmfusion_free $rpmfusion_nonfree
 
 echo "Done!"
 echo "Run toolbox enter -c $1"
