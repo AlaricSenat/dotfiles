@@ -1,5 +1,5 @@
 #!/bin/bash
-FVERSION="f33"
+FVERSION="f34"
 
 cat << EOF >> /var/lib/flatpak/runtime/org.fedoraproject.Platform/x86_64/$FVERSION/active/metadata
 
