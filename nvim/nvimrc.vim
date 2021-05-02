@@ -6,6 +6,10 @@ Plug 'rhysd/clever-f.vim'
 Plug 'pbondoer/vim-42header'
 Plug 'drmikehenry/vim-headerguard'
 Plug 'arcticicestudio/nord-vim'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'ziglang/zig.vim'
+Plug 'beyondmarc/glsl.vim'
+Plug 'JesseKPhillips/d.vim'
 call plug#end()
 
 "Set custom tab width according to language
@@ -34,13 +38,14 @@ set backspace=indent,eol,start
 "set cursor column and line coloration
 let mapleader=";"
 
-set wildignore+=*.so,*.a,*.o,*.zip,*.out,*.class
+set wildignore+=*.so,*.a,*.o,*.zip,*.out,*.class,*.lo,*.la
 
 " leader
 nmap <leader>n :bn<CR>
 nmap <leader>p :bp<CR>
 nmap <leader>d :bd<CR>
 nmap <leader>w :set wrap<CR>
+nmap <leader>z :set foldmethod=syntax foldnestmax=1<CR>
 
 " Undo file.
 set undofile
@@ -62,3 +67,5 @@ tnoremap kj <C-\><C-n>
 
 set background=dark
 colorscheme nord
+
+set guifont=Fira\ Code:h12
