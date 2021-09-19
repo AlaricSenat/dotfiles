@@ -1,11 +1,13 @@
 call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
-Plug 'kien/ctrlp.vim'
 Plug 'rhysd/clever-f.vim'
 Plug 'pbondoer/vim-42header'
 Plug 'drmikehenry/vim-headerguard'
 Plug 'arcticicestudio/nord-vim'
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'ziglang/zig.vim'
 Plug 'beyondmarc/glsl.vim'
