@@ -11,5 +11,6 @@ mkdir -p "${WORKSPACE}"
 git clone "git@code.videolan.org:videolan/vlc.git" "${VLC}"
 mkdir -p "${BUILD}"
 cp "./custom_configure.sh" ${BUILD}
+cp "./.clang-format" ${VLC}
 
 cp -r "${VLC}" "${WORKSPACE}/vlc2"
