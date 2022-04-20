@@ -20,13 +20,12 @@ $run sudo dnf -y upgrade
 
 echo "Installing RPM default tools..."
 $run sudo dnf install -y                    \
-  zsh                                       \
   neovim vim                                \
   make bear cmake meson                     \
   clang gcc gcc-c++ nasm clang-tools-extra  \
   lldb gdb                                  \
   nodejs                                    \
-  tig patch                                 \
+  tig patch file ripgrep                    \
   $rpmfusion_free $rpmfusion_nonfree
 
 echo "Done!"
