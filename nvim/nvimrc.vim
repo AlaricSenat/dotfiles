@@ -46,6 +46,9 @@ nmap <leader>w :set wrap<CR>
 nmap <leader>z :set foldmethod=syntax foldnestmax=1<CR>
 nmap <leader>c :nohlsearch<CR>
 
+" GIT
+nmap <leader>gb :CocCommand git.showCommit<CR>
+
 " Undo files
 set undofile
 set undodir=$HOME/.vim/undodir
