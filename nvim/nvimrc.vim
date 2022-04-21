@@ -74,5 +74,20 @@ endif
 syntax on
 set t_Co=256
 set cursorline
+
+let g:theme='dark'
 colorscheme onehalfdark
 let g:airline_theme='onehalfdark'
+
+function ToggleTheme()
+    if g:theme == 'dark'
+        let g:theme='light'
+        let g:airline_theme='onehalflight'
+        colorscheme onehalflight
+    else
+        let g:theme='dark'
+        let g:airline_theme='onehalfdark'
+        colorscheme onehalfdark
+    endif
+endfunction
+nmap <leader>t :call ToggleTheme()<CR>
