@@ -34,7 +34,7 @@ set incsearch
 set ignorecase
 set smartcase
 set backspace=indent,eol,start
-set expandtab ts=2 sw=2
+set expandtab ts=4 sw=4
 set wildignore+=*.so,*.a,*.o,*.zip,*.out,*.class,*.lo,*.la
 
 " Leader
