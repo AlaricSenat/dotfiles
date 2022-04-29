@@ -11,5 +11,5 @@ flatpak config --set languages "en;fr"
 # Upgrade and install the base layer
 rpm-ostree refresh-md &&
 rpm-ostree upgrade &&
-rpm-ostree install zsh vim gnome-tweak-tool evolution &&
+rpm-ostree install vim gnome-tweak-tool evolution &&
 echo Success ! You can now reboot and start install phase 2
