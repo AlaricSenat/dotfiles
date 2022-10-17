@@ -73,7 +73,10 @@ return packer.startup(function(use)
     }
 
     -- Status line
-    use 'nvim-lualine/lualine.nvim'
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
 
     use {
         'nvim-treesitter/nvim-treesitter',
