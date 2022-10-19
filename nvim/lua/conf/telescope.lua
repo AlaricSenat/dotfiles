@@ -11,6 +11,11 @@ telescope.setup {
                 ['<C-j>'] = 'move_selection_next',
                 ['<C-q>'] = 'close',
             },
+            n = {
+                ['<C-k>'] = 'move_selection_previous',
+                ['<C-j>'] = 'move_selection_next',
+                ['<C-q>'] = 'close',
+            },
         },
     },
 }
