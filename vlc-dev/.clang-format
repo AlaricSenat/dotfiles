@@ -3,6 +3,7 @@ BinPackParameters: 'false'
 BreakBeforeBraces: Allman
 ColumnLimit: '80'
 IndentWidth: '4'
+IndentCaseLabels: 'true'
 
 IncludeBlocks: 'Regroup'
 IncludeCategories:
