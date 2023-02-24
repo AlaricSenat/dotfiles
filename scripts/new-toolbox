@@ -24,7 +24,6 @@ $run sudo dnf install -y                    \
   make bear cmake meson                     \
   clang gcc gcc-c++ nasm clang-tools-extra  \
   lldb gdb                                  \
-  nodejs                                    \
   tig patch file ripgrep                    \
   $rpmfusion_free $rpmfusion_nonfree
 
