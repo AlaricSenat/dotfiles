@@ -85,7 +85,7 @@ return packer.startup(function(use)
     }
 
     -- Colorscheme
-    use 'navarasu/onedark.nvim'
+    use 'Shatur/neovim-ayu'
 
     -- Speed-up startup time
     use 'lewis6991/impatient.nvim'

@@ -1,6 +1,9 @@
-local status_ok, colorscheme = pcall(require, 'onedark')
+local status_ok, colorscheme = pcall(require, 'ayu')
 if not status_ok then
     return
 end
 
-colorscheme.load()
+colorscheme.setup({
+    dark = true,
+})
+colorscheme.colorscheme()
