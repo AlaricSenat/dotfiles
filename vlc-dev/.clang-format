@@ -5,15 +5,30 @@ ColumnLimit: '80'
 IndentWidth: '4'
 IndentCaseLabels: 'true'
 
-IncludeBlocks: 'Regroup'
+IncludeBlocks: Regroup
 IncludeCategories:
-    - Regex:           'config\.h'
-      Priority:        -2
-    - Regex:           'vlc_common\.h'
-      Priority:        2
-    - Regex:           '^<vlc_.*'
-      Priority:        3
-    - Regex:           '^<.*'
-      Priority:        1
-    - Regex:           '^".*'
-      Priority:        4
+  - Regex: config\.h
+    Priority: -2
+  - Regex: vlc_common\.h
+    Priority: 2
+  - Regex: ^<vlc_.*
+    Priority: 3
+  - Regex: ^<.*
+    Priority: 1
+  - Regex: ^".*
+    Priority: 4
+
+AttributeMacros:
+  - VLC_USED
+  - VLC_DEPRECATED
+  - VLC_MALLOC
+  - VLC_FORMAT
+  - VLC_FORMAT_ARG
+  - VLC_WEAK
+  - VLC_EXPORT
+  - VLC_API
+ForEachMacros:
+  - vlc_list_foreach
+  - vlc_vector_foreach
+MacroBlockBegin: ^MANIFEST_START_TAG$
+MacroBlockEnd: ^MANIFEST_END_TAG$
