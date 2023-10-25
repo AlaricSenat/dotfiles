@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo dnf builddep -y vlc vlc-devel
-sudo dnf install -y libasan libtsan libubsan qt5-qtquickcontrols2-devel libatomic
+sudo dnf install -y libasan libtsan libubsan qt5-qtquickcontrols2-devel libatomic lame-devel valgrind-devel
 
 WORKSPACE="/var/home/asenat/workspaces/vlc"
 VLC="${WORKSPACE}/vlc"
