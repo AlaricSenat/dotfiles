@@ -72,12 +72,14 @@ return packer.startup(function(use)
     -- Git
     use {
         'lewis6991/gitsigns.nvim', tag = '*',
+        'sindrets/diffview.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
 
     -- Status line
     use {
         'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
 
     use {
