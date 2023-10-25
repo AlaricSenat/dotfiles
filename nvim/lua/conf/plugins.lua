@@ -42,7 +42,7 @@ return packer.startup(function(use)
 
     -- Fuzzy finder
     use {
-        'nvim-telescope/telescope.nvim', tag = '*',
+        'nvim-telescope/telescope.nvim', tag = '0.1.2',
         requires = {
             { 'nvim-lua/plenary.nvim' },
             { 'nvim-telescope/telescope-fzf-native.nvim',
@@ -70,7 +70,7 @@ return packer.startup(function(use)
 
     -- Git
     use {
-        'lewis6991/gitsigns.nvim', tag = 'release'
+        'lewis6991/gitsigns.nvim', tag = '*',
     }
 
     -- Status line
