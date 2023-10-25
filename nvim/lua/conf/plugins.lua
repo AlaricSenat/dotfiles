@@ -66,6 +66,7 @@ return packer.startup(function(use)
         'williamboman/mason-lspconfig.nvim',
         'neovim/nvim-lspconfig',
         'jose-elias-alvarez/null-ls.nvim',
+        'lvimuser/lsp-inlayhints.nvim',
     }
 
     -- Git
