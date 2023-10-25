@@ -6,9 +6,9 @@ OPTIONS="--disable-mpc --disable-libplacebo --with-contrib=/var/home/asenat/work
 #"
 
 CONFIGURE="../configure"
-export CXX="g++"
+export CXX="ccache g++"
 export CXXFLAGS="-O0 -g3 -fno-omit-frame-pointer -DDEBUG"
-export CC="gcc"
+export CC="ccache gcc"
 export CFLAGS="-O0 -g3 -fno-omit-frame-pointer -DDEBUG"
 export PATH="/var/home/asenat/workspaces/vlc/vlc/extras/tools/build/bin/:${PATH}"
 
