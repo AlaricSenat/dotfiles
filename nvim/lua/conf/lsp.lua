@@ -26,8 +26,8 @@ local on_attach = function(_, bufnr)
     nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
     nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
-    nmap('<leader>dj', vim.diagnostic.goto_prev, 'Next [D]iagnostic' )
-    nmap('<leader>dk', vim.diagnostic.goto_next, 'Previous [D]iagnostic')
+    nmap('<leader>dj', vim.diagnostic.goto_next, 'Next [D]iagnostic' )
+    nmap('<leader>dk', vim.diagnostic.goto_prev, 'Previous [D]iagnostic')
 
     -- Lesser used LSP functionality
     nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
