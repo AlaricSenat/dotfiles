@@ -4,7 +4,7 @@ rpm-ostree install                                            \
     git                                                       \
     podman-compose containernetworking-plugins                \
     virt-manager                                              \
-    intel-media-driver libva-intel-media-driver igt-gpu-tools \
+    intel-media-driver libva-utils igt-gpu-tools              \
     net-tools tcpdump wireshark                               \
     chromium &&
 
