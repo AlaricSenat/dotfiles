@@ -12,4 +12,5 @@ flatpak config --set languages "en;fr"
 rpm-ostree refresh-md &&
 rpm-ostree upgrade &&
 rpm-ostree install vim gnome-tweak-tool evolution &&
+rpm-ostree override remove firefox firefox-langpacks &&
 echo Success ! You can now reboot and start install phase 2
