@@ -42,3 +42,5 @@ vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
 -- avoid hit-enter prompts
 vim.opt.shortmess:append 'c'
+-- allow directory specific configuration files
+vim.opt.exrc = true
