@@ -57,7 +57,7 @@ lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 mason.setup()
 
 -- Enable the following language servers
-local servers = { 'clangd', 'rust_analyzer', 'bashls' }
+local servers = { 'clangd', 'bashls' }
 
 -- Ensure the servers above are installed
 require('mason-lspconfig').setup {
