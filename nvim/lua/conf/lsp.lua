@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 --  This function gets run when an LSP connects to a particular buffer.
-local on_attach = function(client, bufnr)
+on_lsp_attach = function(client, bufnr)
     local nmap = function(keys, func, desc)
         if desc then
             desc = 'LSP: ' .. desc
@@ -51,7 +51,7 @@ local on_attach = function(client, bufnr)
 end
 
 -- nvim-cmp supports additional completion capabilities
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- Setup mason so it can manage external tooling
 mason.setup()
@@ -66,8 +66,8 @@ require('mason-lspconfig').setup {
 
 for _, lsp in ipairs(servers) do
     require('lspconfig')[lsp].setup {
-        on_attach = on_attach,
-        capabilities = capabilities,
+        on_attach = on_lsp_attach,
+        capabilities = lsp_capabilities,
     }
 end
 
