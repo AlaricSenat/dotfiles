@@ -17,7 +17,7 @@ on_lsp_attach = function(client, bufnr)
     if client.server_capabilities.inlayHintProvider then
         vim.lsp.inlay_hint.enable(true)
     else
-        print("no inlay hints available")
+        print('no inlay hints available')
     end
 
     nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
@@ -83,7 +83,7 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = { prefix = '' } })
 
 -- Setup null-ls
-local null_ls = require("null-ls")
+local null_ls = require('null-ls')
 null_ls.setup({
     sources = {
         null_ls.builtins.diagnostics.markdownlint,
