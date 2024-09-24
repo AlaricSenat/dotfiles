@@ -37,3 +37,6 @@ set wildmenu
 set wildmode=longest,full
 
 inoremap kj <esc>
+
+" git-revise color scheme compatibility
+autocmd BufNewFile,BufRead */.git/revise.*   set syntax=gitrebase
