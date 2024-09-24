@@ -42,3 +42,6 @@ gitsigns.setup{
         map('n', '<leader>td', gs.toggle_deleted)
     end
 }
+
+-- Enable git revise file colorscheme
+vim.filetype.add({ filename = { ['git-revise-todo'] = 'gitrebase' } })
