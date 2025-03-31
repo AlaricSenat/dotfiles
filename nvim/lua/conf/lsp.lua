@@ -20,6 +20,13 @@ on_lsp_attach = function(client, bufnr)
     print('no inlay hints available')
   end
 
+  --- toggle inlay hints
+  if client.server_capabilities.inlayHintProvider then
+    vim.lsp.inlay_hint.enable(true)
+  else
+    print('no inlay hints available')
+  end
+
   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
@@ -44,14 +51,6 @@ on_lsp_attach = function(client, bufnr)
   nmap('<leader>wl', function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, '[W]orkspace [L]ist Folders')
-
-  -- Global format command
-  vim.keymap.set(
-    '',
-    '<leader>f',
-    vim.lsp.buf.format,
-    { buffer = bufnr, desc = '[F]ormat the code (works with ranges)' }
-  )
 end
 
 -- nvim-cmp supports additional completion capabilities
@@ -60,20 +59,39 @@ lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- Setup mason so it can manage external tooling
 mason.setup()
 
--- Enable the following language servers
-local servers = { 'clangd', 'bashls' }
-
--- Ensure the servers above are installed
-require('mason-lspconfig').setup {
-  ensure_installed = servers,
+-- Ensure the tools below are installed
+require('mason-tool-installer').setup {
+  ensure_installed = {
+    -- Language servers
+    'bash-language-server',
+    'clangd',
+    'rust-analyzer',
+    'typescript-language-server',
+    -- Linters
+    'codespell',
+    'vale',
+    -- Formatters
+    'hclfmt',
+    'stylua',
+  },
 }
 
-for _, lsp in ipairs(servers) do
-  require('lspconfig')[lsp].setup {
-    on_attach = on_lsp_attach,
-    capabilities = lsp_capabilities,
-  }
-end
+local lspconfig = require('lspconfig')
+
+lspconfig.bashls.setup {
+  on_attach = on_lsp_attach,
+  capabilities = lsp_capabilities,
+}
+
+lspconfig.clangd.setup {
+  on_attach = on_lsp_attach,
+  capabilities = lsp_capabilities,
+}
+
+lspconfig.ts_ls.setup {
+  on_attach = on_lsp_attach,
+  capabilities = lsp_capabilities,
+}
 
 -- Diagnostic signs
 local signs = { Error = ' ', Warn = ' ', Hint = ' ', Info = ' ' }
@@ -86,15 +104,38 @@ end
 vim.lsp.handlers['textDocument/publishDiagnostics'] =
   vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = { prefix = '' } })
 
--- Setup null-ls
-local null_ls = require('null-ls')
-null_ls.setup({
-  sources = {
-    null_ls.builtins.diagnostics.markdownlint,
-    null_ls.builtins.diagnostics.codespell.with({
-      extra_args = { '-L', 'crate,IIF' },
-    }),
-
-    null_ls.builtins.formatting.beautysh,
+require('conform').setup({
+  formatters_by_ft = {
+    lua = { 'stylua' },
+    hcl = { 'hcl' },
   },
+})
+
+vim.api.nvim_create_user_command('Format', function(args)
+  local range = nil
+  if args.count ~= -1 then
+    local end_line = vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
+    range = {
+      start = { args.line1, 0 },
+      ['end'] = { args.line2, end_line:len() },
+    }
+  end
+  require('conform').format({ async = true, lsp_format = 'fallback', range = range })
+end, { range = true })
+vim.keymap.set('', '<leader>f', '<cmd>Format<cr>')
+
+require('lint').linters_by_ft = {
+  markdown = { 'vale' },
+}
+
+vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
+  callback = function()
+    -- try_lint without arguments runs the linters defined in `linters_by_ft`
+    -- for the current filetype
+    require('lint').try_lint()
+
+    -- You can call `try_lint` with a linter name or a list of names to always
+    -- run specific linters, independent of the `linters_by_ft` configuration
+    require('lint').try_lint('codespell')
+  end,
 })

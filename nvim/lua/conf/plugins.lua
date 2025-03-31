@@ -66,10 +66,10 @@ return packer.startup(function(use)
   -- LSP
   use {
     'williamboman/mason.nvim',
-    'williamboman/mason-lspconfig.nvim',
+    'WhoIsSethDaniel/mason-tool-installer.nvim',
     'neovim/nvim-lspconfig',
-    'nvimtools/none-ls.nvim',
-    'lvimuser/lsp-inlayhints.nvim',
+    'mfussenegger/nvim-lint',
+    'stevearc/conform.nvim',
   }
 
   -- Git
