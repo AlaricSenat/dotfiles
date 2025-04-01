@@ -1,12 +1,12 @@
 local status_ok, lualine = pcall(require, 'lualine')
 if not status_ok then
-    return
+  return
 end
 
 lualine.setup({
-    options = {
-        theme = 'ayu',
-        component_separators = '|',
-        section_separators = '',
-    },
+  options = {
+    theme = 'ayu',
+    component_separators = '|',
+    section_separators = '',
+  },
 })

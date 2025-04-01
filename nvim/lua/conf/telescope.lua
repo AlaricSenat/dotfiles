@@ -1,23 +1,23 @@
 local status_ok, telescope = pcall(require, 'telescope')
 if not status_ok then
-    return
+  return
 end
 
 telescope.setup {
-    defaults = {
-        mappings = {
-            i = {
-                ['<C-k>'] = 'move_selection_previous',
-                ['<C-j>'] = 'move_selection_next',
-                ['<C-q>'] = 'close',
-            },
-            n = {
-                ['<C-k>'] = 'move_selection_previous',
-                ['<C-j>'] = 'move_selection_next',
-                ['<C-q>'] = 'close',
-            },
-        },
+  defaults = {
+    mappings = {
+      i = {
+        ['<C-k>'] = 'move_selection_previous',
+        ['<C-j>'] = 'move_selection_next',
+        ['<C-q>'] = 'close',
+      },
+      n = {
+        ['<C-k>'] = 'move_selection_previous',
+        ['<C-j>'] = 'move_selection_next',
+        ['<C-q>'] = 'close',
+      },
     },
+  },
 }
 
 local builtin = require('telescope.builtin')
