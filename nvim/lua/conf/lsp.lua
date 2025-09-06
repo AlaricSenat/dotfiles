@@ -93,6 +93,11 @@ lspconfig.ts_ls.setup {
   capabilities = lsp_capabilities,
 }
 
+lspconfig.muon.setup {
+  on_attach = on_lsp_attach,
+  capabilities = lsp_capabilities,
+}
+
 -- Diagnostic signs
 local signs = { Error = ' ', Warn = ' ', Hint = ' ', Info = ' ' }
 for type, icon in pairs(signs) do
@@ -108,8 +113,14 @@ require('conform').setup({
   formatters_by_ft = {
     lua = { 'stylua' },
     hcl = { 'hcl' },
+    meson = { 'muon' },
   },
 })
+
+require('conform').formatters.muon = {
+  command = 'muon',
+  args = { 'fmt', '$FILENAME' },
+}
 
 vim.api.nvim_create_user_command('Format', function(args)
   local range = nil
