@@ -16,15 +16,6 @@ on_lsp_attach = function(client, bufnr)
   --- toggle inlay hints
   if client.server_capabilities.inlayHintProvider then
     vim.lsp.inlay_hint.enable(true)
-  else
-    print('no inlay hints available')
-  end
-
-  --- toggle inlay hints
-  if client.server_capabilities.inlayHintProvider then
-    vim.lsp.inlay_hint.enable(true)
-  else
-    print('no inlay hints available')
   end
 
   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
@@ -76,38 +67,28 @@ require('mason-tool-installer').setup {
   },
 }
 
-local lspconfig = require('lspconfig')
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(args)
+    on_lsp_attach(vim.lsp.get_client_by_id(args.data.client_id), args.buf)
+  end,
+})
 
-lspconfig.bashls.setup {
-  on_attach = on_lsp_attach,
-  capabilities = lsp_capabilities,
-}
+vim.lsp.config('*', { capabilities = lsp_capabilities })
 
-lspconfig.clangd.setup {
-  on_attach = on_lsp_attach,
-  capabilities = lsp_capabilities,
-}
+vim.lsp.enable({ 'bashls', 'clangd', 'ts_ls', 'muon' })
 
-lspconfig.ts_ls.setup {
-  on_attach = on_lsp_attach,
-  capabilities = lsp_capabilities,
-}
-
-lspconfig.muon.setup {
-  on_attach = on_lsp_attach,
-  capabilities = lsp_capabilities,
-}
-
--- Diagnostic signs
-local signs = { Error = ' ', Warn = ' ', Hint = ' ', Info = ' ' }
-for type, icon in pairs(signs) do
-  local hl = 'DiagnosticSign' .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
-end
-
--- Diagnostic virtual text prefix
-vim.lsp.handlers['textDocument/publishDiagnostics'] =
-  vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = { prefix = '' } })
+-- Diagnostics
+vim.diagnostic.config({
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = ' ',
+      [vim.diagnostic.severity.WARN] = ' ',
+      [vim.diagnostic.severity.HINT] = ' ',
+      [vim.diagnostic.severity.INFO] = ' ',
+    },
+  },
+  virtual_text = { prefix = '' },
+})
 
 require('conform').setup({
   formatters_by_ft = {
