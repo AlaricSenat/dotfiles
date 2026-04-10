@@ -44,3 +44,5 @@ vim.opt.sidescrolloff = 8
 vim.opt.shortmess:append 'c'
 
 vim.opt.exrc = true
+
+vim.opt.conceallevel = 2

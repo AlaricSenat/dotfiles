@@ -12,6 +12,7 @@ require 'conf.snippets'
 require 'conf.lsp'
 
 require 'conf.git'
+require 'conf.zk'
 
 require 'conf.colorscheme'
 require 'conf.statusline'

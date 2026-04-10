@@ -6,9 +6,9 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # User specific environment
-if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:$HOME/.local/bin:$HOME/.local/share/nvim/mason/bin:" ]]
 then
-    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+    PATH="$HOME/.local/bin:$HOME/bin:$HOME/.local/bin:$HOME/share/nvim/mason/bin:$PATH"
 fi
 export PATH
 
@@ -28,3 +28,5 @@ unset rc
 export EDITOR=vim
 #eval "$(starship init bash)"
 . "$HOME/.cargo/env"
+
+export ZK_NOTEBOOK_DIR="$HOME/Workspaces/notes/"
