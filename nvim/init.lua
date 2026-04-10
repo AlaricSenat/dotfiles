@@ -1,3 +1,5 @@
+vim.loader.enable()
+
 require 'conf.options'
 require 'conf.keymaps'
 require 'conf.filetype'
@@ -14,5 +16,3 @@ require 'conf.git'
 require 'conf.colorscheme'
 require 'conf.statusline'
 require 'conf.treesitter'
-
-pcall(require, 'impatient')

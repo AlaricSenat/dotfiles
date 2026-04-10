@@ -96,8 +96,6 @@ return packer.startup(function(use)
   -- Colorscheme
   use 'Shatur/neovim-ayu'
 
-  -- Speed-up startup time
-  use 'lewis6991/impatient.nvim'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
