@@ -45,4 +45,9 @@ vim.opt.shortmess:append 'c'
 
 vim.opt.exrc = true
 
+-- Automatically handle swap file conflicts
+vim.api.nvim_create_autocmd('SwapExists', {
+  callback = function() vim.v.swapchoice = 'e' end,
+})
+
 vim.opt.conceallevel = 2
